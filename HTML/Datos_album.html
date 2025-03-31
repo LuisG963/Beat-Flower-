@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Álbum</title>
+    <link rel="stylesheet" href="../CSS/Datos.css">
+    <script>
+        function previewImage(event) {
+            const fileInput = document.getElementById('albumImage');
+            const output = document.getElementById('albumImagePreview');
+            const fileName = document.getElementById('fileName');
+            const file = fileInput.files[0];
+
+            // Mostrar vista previa de la imagen
+            output.src = URL.createObjectURL(file);
+
+            // Mostrar el nombre del archivo
+            fileName.textContent = file.name;
+        }
+    </script>
+</head>
+<body>
+
+<form action="../PHP/Datos_album.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <div class="form-container">
+        <div class="image-container">
+            <!-- Vista previa de la imagen y nombre del archivo -->
+            <div id="preview-container">
+                <img id="albumImagePreview" src="" alt="Vista previa de la imagen" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                <p id="fileName">Ningún archivo seleccionado</p>
+            </div>
+
+            <!-- Selección de archivo -->
+            <label for="albumImage">Imagen del Álbum:</label>
+            <input type="file" name="albumImage" id="albumImage" accept="image/*" onchange="previewImage(event)" required>
+        </div>
+
+        <div class="info-container">
+            <label for="recordLabel">Nombre de la Disquera:</label>
+            <input type="text" name="recordLabel" id="recordLabel" required>
+
+            <label for="songName">Nombre de la Canción:</label>
+            <input type="text" name="songName" id="songName" required>
+
+            <label for="genre">Género:</label>
+            <input type="text" name="genre" id="genre" required>
+
+            <label for="composerName">Nombre del Compositor:</label>
+            <input type="text" name="composerName" id="composerName" required>
+
+            <button type="submit">Enviar</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    // Validar los parámetros del formulario antes de enviarlo
+    function validateForm() {
+        var recordLabel = document.getElementById('recordLabel').value;
+        var songName = document.getElementById('songName').value;
+        var genre = document.getElementById('genre').value;
+        var composerName = document.getElementById('composerName').value;
+        
+        // Validar nombre de la disquera (entre 25 y 50 caracteres)
+        if (!/^[a-zA-Z ]{5,50}$/.test(recordLabel)) {
+            alert("El nombre de la disquera debe tener entre 5 y 50 caracteres y solo permitir letras y espacios.");
+            return false;
+        }
+        // Validar nombre de la canción (entre 1 y 50 caracteres)
+        if (!/^[a-zA-Z ]{1,50}$/.test(songName)) {
+            alert("El nombre de la canción debe tener entre 1 y 50 caracteres y solo permitir letras y espacios.");
+            return false;
+        }
+        // Validar género (entre 1 y 25 caracteres)
+        if (!/^[a-zA-Z ]{1,25}$/.test(genre)) {
+            alert("El género debe tener entre 1 y 25 caracteres y solo permitir letras y espacios.");
+            return false;
+        }
+        // Validar nombre del compositor (entre 1 y 50 caracteres)
+        if (!/^[a-zA-Z ]{1,50}$/.test(composerName)) {
+            alert("El nombre del compositor debe tener entre 1 y 50 caracteres y solo permitir letras y espacios.");
+            return false;
+        }
+        // Validación de archivo de imagen
+        var fileInput = document.getElementById('albumImage');
+        var filePath = fileInput.value;
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        if (!allowedExtensions.exec(filePath)) {
+            alert('Solo puedes cargar imágenes (JPG, JPEG, PNG, GIF).');
+            fileInput.value = ''; // Limpiar el campo de archivo
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

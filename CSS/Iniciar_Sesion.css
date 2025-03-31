@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/Icono_Musica_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #1aa34a;
+}
+
+.mensaje-contenedor {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje-titulo {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mensaje-titulo.bienvenido {
+    color: #1db954;
+    background: url('../img/Musica2.jpg') no-repeat center center;
+    background-size: 40px 40px;
+    padding-left: 50px;
+    font-size: 26px;
+}
+
+.mensaje-titulo.no-registrado {
+    color: #f44336;
+    background: url('../img/warning-icon.png') no-repeat center center;
+    background-size: 40px 40px;
+    padding-left: 50px;
+    font-size: 26px;
+}
+
+.boton-container {
+    margin-top: 20px;
+}
+
+.boton-container button {
+    background-color: #1db954;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boton-container button:hover {
+    background-color: #1aa34a;
+}

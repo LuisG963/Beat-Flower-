@@ -1,0 +1,247 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.registro-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #ff4b2b;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff416c;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #ff4b2b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.errores-container {
+    display: flex;
+    flex-direction: column; /* Hace que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los errores */
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    padding: 20px; /* Espacio adicional alrededor de los errores */
+}
+
+.error {
+    color: rgb(29, 27, 27);
+    background-color: #0cead4; /* Rojo */
+    padding: 10px;
+    margin: 10px 0;  /* Separación entre los errores */
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.error1 {
+    color: rgb(24, 23, 23);
+    background-color: #b7a5a4; /* Gris */
+    padding: 10px;
+    margin: 10px 0;  /* Separación entre los errores */
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.error2 {
+    color: rgb(28, 27, 27);
+    background-color: #63e7b3; /* Azul claro */
+    padding: 10px;
+    margin: 10px 0;  /* Separación entre los errores */
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Estilo del contenedor */
+.mensaje-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    background-image: url('IMG/Icono_Musica_2.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 128, 0, 0.5); /* Sombra más suave */
+    width: 350px;
+    height: 300px; /* Ajustado para dar más espacio */
+    margin: 50px auto;
+    transition: all 0.3s ease-in-out; /* Suaviza la transición al pasar el mouse */
+}
+
+.mensaje-contenedor:hover {
+    transform: scale(1.05); /* Agranda ligeramente el contenedor al pasar el mouse */
+}
+
+/* Estilo del título */
+.mensaje-titulo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 12px;
+    background-color: rgba(0, 128, 0, 0.8); /* Fondo verde más oscuro */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra de texto para hacerlo más legible */
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Estilo del mensaje de éxito */
+.mensaje-exitoso {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 12px;
+    background-color: rgba(0, 128, 0, 0.7); /* Fondo verde oscuro semitransparente */
+    border-radius: 8px;
+    width: 90%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para el mensaje */
+}
+
+/* Efecto de transición para los mensajes */
+.mensaje-exitoso,
+.mensaje-titulo {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Efecto cuando el contenedor está en hover (solo si deseas un toque extra) */
+.mensaje-contenedor:hover .mensaje-exitoso {
+    transform: scale(1.05); /* Agranda el mensaje */
+    opacity: 0.9; /* Hace el mensaje ligeramente más translúcido al pasar el mouse */
+}
+
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor de errores */
+.errores-container {
+    background-color: #ffdddd;
+    border: 1px solid #ff0000;
+    color: #900;
+    padding: 15px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor de mensajes de éxito */
+.mensaje-contenedor {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+    padding: 15px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón dentro de los contenedores */
+.boton-container {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botón */
+button {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+

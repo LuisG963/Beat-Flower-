@@ -1,0 +1,156 @@
+/* Imagen de fondo para toda la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/album_datos.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la imagen y los campos del formulario */
+.image-container {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.image-container input {
+    margin-top: 10px;
+}
+
+/* Vista previa de la imagen */
+#albumImagePreview {
+    width: 400px; /* Tamaño más grande para la imagen */
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor de la imagen */
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenedor para la imagen y el nombre del archivo */
+#preview-container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor para los campos de texto y botón */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-container label {
+    margin: 5px 0;
+}
+
+.info-container input {
+    padding: 10px;
+    margin: 5px 0;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.info-container button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #6EC1E4; /* Azul suave */
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-container button:hover {
+    background-color: #4a9bcf;
+}
+
+/* Estilos para los mensajes de error y éxito */
+.error-message {
+    background-color: #FF6347; /* Rojo */
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #6EC1E4; /* Azul suave */
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* Estilos para los mensajes de éxito y error */
+.error-message, .success-message {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+    background-color: #FF6B6B; /* Rojo claro */
+    color: white;
+    border: 2px solid #D9534F; /* Rojo más oscuro */
+}
+
+.success-message {
+    background-color: #38aca8; /* Verde claro */
+    color: white;
+    border: 2px solid #4CAF50; /* Verde más oscuro */
+}
+
+.success-message h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.error-message h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.error-message p {
+    font-size: 16px;
+    margin: 0;
+}
+

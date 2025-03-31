@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Nombre del Nuevo Álbum</title>
+    <style>
+        /* Imagen de fondo para toda la página */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../img/musica_registro.webp'); /* Reemplaza con la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo para la ventana flotante */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 80%;
+            max-width: 400px;
+            background-image: url('../img/Fondo_Nombre_Album.avif'); /* Reemplaza con la ruta de la imagen del cuadro */
+            background-size: cover;
+            background-position: center;
+            color: rgb(8, 8, 8); /* El texto será blanco para resaltar sobre el fondo */
+        }
+        .popup-content {
+            margin: 10px 0;
+        }
+        .popup input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .popup button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #45a049;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ventana flotante -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Ingresa el nombre de tu nuevo álbum</h2>
+        <form id="albumForm" method="POST" action="../PHP/Nombre_album.php">
+           
+            <div class="popup-content">
+                <label for="albumName">Nombre del álbum:</label>
+                <input type="text" id="albumName" name="albumName" required>
+            </div>
+            <button type="submit">Guardar</button>
+        </form>
+    </div> 
+
+    <script>
+        // Mostrar la ventana flotante
+        window.onload = function() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        };
+
+        // Validar el nombre del álbum antes de enviarlo
+        document.getElementById("albumForm").onsubmit = function(event) {
+            var albumName = document.getElementById("albumName").value.trim();
+            var regex = /^[a-zA-Z\s]+$/;  // Solo letras y espacios en blanco
+
+            if (!regex.test(albumName)) {
+                alert("El nombre solo puede contener letras y espacios.");
+                event.preventDefault();
+                return;
+            }
+
+            var wordCount = albumName.split(/\s+/).length;
+            if (wordCount < 1 || wordCount > 25) {
+                alert("El nombre del álbum debe tener entre 1 y 25 palabras.");
+                event.preventDefault();
+            }
+        };
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - MusicVibe</title>
+    <link rel="stylesheet" href="../CSS/Iniciar_Sesion.css"> <!-- Archivo CSS separado -->
+    <style>
+        /* Estilo general del formulario */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../img/Iniciar-Sesion.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .show-password-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .show-password-container button {
+            background-color: #1DB954; /* Color similar al logo de Spotify */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .show-password-container button:hover {
+            background-color: #1ED760; /* Color más brillante al pasar el mouse */
+        }
+
+        .boton-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1ED760;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" action="../PHP/Iniciar_Sesion.php" method="POST" onsubmit="return validateForm()">
+            <label for="usuario">Nombre de Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <!-- Botón para mostrar/ocultar la contraseña -->
+            <div class="show-password-container">
+                <button type="button" id="toggle-password" onclick="togglePassword()">Mostrar Contraseña</button>
+            </div>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <script>
+        // Función para alternar la visibilidad de la contraseña
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.getElementById("toggle-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text"; // Muestra la contraseña
+                toggleButton.textContent = "Ocultar Contraseña"; // Cambia el texto del botón
+            } else {
+                passwordField.type = "password"; // Oculta la contraseña
+                toggleButton.textContent = "Mostrar Contraseña"; // Cambia el texto del botón
+            }
+        }
+
+        // Función para validar los campos antes de enviar el formulario
+        function validateForm() {
+            var usuario = document.getElementById("usuario").value;
+            var password = document.getElementById("password").value;
+
+            // Validar que el nombre de usuario solo contenga letras (sin números ni espacios)
+            var usernameRegex = /^[a-zA-Z]+$/;
+            if (!usernameRegex.test(usuario)) {
+                alert("Solo puedes escribir caracteres en el nombre de usuario (sin números ni espacios).");
+                return false; // Impide que el formulario se envíe
+            }
+
+            // Validar que la contraseña solo contenga números
+            var passwordRegex = /^[0-9]+$/;
+            if (!passwordRegex.test(password)) {
+                alert("La contraseña debe contener solo números.");
+                return false; // Impide que el formulario se envíe
+            }
+
+            return true; // Si todo es válido, permite enviar el formulario
+        }
+    </script>
+
+</body>
+</html>
